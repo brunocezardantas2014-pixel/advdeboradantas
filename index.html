@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Assessoria jurídica estratégica com atendimento humanizado. Fale com um advogado e agende sua consulta." />
+  <title>Dms Advocacia | Atendimento rápido e estratégico</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --muted:#a8b3cf;
+      --text:#e9eefc;
+      --brand:#6ee7ff;
+      --brand2:#a78bfa;
+      --ok:#34d399;
+      --warn:#fbbf24;
+      --line:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1140px;
+      --pad: 20px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue";
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:var(--font);
+              background:
+                linear-gradient(rgba(11,18,32,.78), rgba(11,18,32,.92)),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=80'),
+                radial-gradient(1200px 600px at 10% 0%, rgba(110,231,255,.18), transparent 60%),
+                radial-gradient(900px 500px at 90% 10%, rgba(167,139,250,.18), transparent 60%),
+                var(--bg);
+              background-size: cover, cover, auto, auto, auto;
+              background-position: center, center, 10% 0%, 90% 10%, center;
+              background-attachment: fixed, fixed, scroll, scroll, scroll;
+              color:var(--text);scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(14px);
+      background:rgba(11,18,32,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px;
+    }
+    .logo{
+      width:38px;height:38px;border-radius:12px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.25);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 18px rgba(0,0,0,.22);
+    }
+    .logo svg{display:block}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--muted);font-weight:600;font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 16px;border-radius:14px;font-weight:800;border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      transition:.15s transform ease,.15s background ease,.15s border-color ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.2)}
+    .btn.primary{
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      border-color:transparent;color:#0b1220;
+    }
+    .btn.primary:hover{transform:translateY(-1px) scale(1.01)}
+    .btn.small{padding:10px 12px;border-radius:12px;font-size:14px}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      color:var(--muted);font-weight:700;font-size:13px;
+    }
+    .pill b{color:var(--text)}
+    .hero{
+      padding:56px 0 28px;
+      position:relative;
+      background:
+        linear-gradient(rgba(11,18,32,.72), rgba(11,18,32,.92)),
+        url('https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=2000&q=80');
+      background-size:cover;
+      background-position:center;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns: 1.15fr .85fr;gap:26px;align-items:stretch;
+    }
+    h1{font-size:44px;line-height:1.08;margin:14px 0 14px;letter-spacing:-.7px}
+    .lead{color:var(--muted);font-size:16px;line-height:1.65;margin:0 0 18px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .stats{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px
+    }
+    .stat{
+      padding:14px;border-radius:16px;background:rgba(255,255,255,.05);
+      border:1px solid var(--line)
+    }
+    .stat .k{font-weight:900;font-size:18px}
+    .stat .t{color:var(--muted);font-size:13px;margin-top:4px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .hero-card{padding:18px}
+    .hero-card h3{margin:0 0 10px;font-size:16px}
+    .form{
+      display:grid;gap:10px;margin-top:10px
+    }
+    .field{display:grid;gap:6px}
+    label{font-size:13px;color:var(--muted);font-weight:700}
+    input,select,textarea{
+      width:100%;
+      padding:12px 12px;border-radius:14px;
+      background:rgba(11,18,32,.6);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{border-color:rgba(110,231,255,.55);box-shadow:0 0 0 3px rgba(110,231,255,.12)}
+    textarea{min-height:92px;resize:vertical}
+    .note{font-size:12px;color:var(--muted);line-height:1.5}
+    .section{padding:40px 0}
+    .section h2{font-size:28px;margin:0 0 12px;letter-spacing:-.2px}
+    .section p{margin:0;color:var(--muted);line-height:1.65}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .item{padding:18px}
+    .item .icon{
+      width:42px;height:42px;border-radius:14px;
+      background:rgba(110,231,255,.12);
+      border:1px solid rgba(110,231,255,.25);
+      display:grid;place-items:center;margin-bottom:12px;
+      font-weight:900;color:var(--brand);
+    }
+    .item h3{margin:0 0 8px;font-size:16px}
+    .item ul{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.6}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;font-weight:800;color:#0b1220;
+      background:rgba(52,211,153,.9);
+      padding:6px 10px;border-radius:999px;
+    }
+    .steps{counter-reset: step}
+    .step{padding:18px;position:relative}
+    .step:before{
+      counter-increment: step;
+      content: counter(step);
+      position:absolute;top:18px;right:18px;
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(167,139,250,.14);
+      border:1px solid rgba(167,139,250,.28);
+      color:var(--brand2);font-weight:900;
+    }
+    .testi{padding:18px}
+    .stars{color:var(--warn);letter-spacing:1px}
+    .who{margin-top:10px;color:var(--muted);font-weight:700;font-size:13px}
+    details{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 14px;
+      background:rgba(255,255,255,.04);
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer;font-weight:900}
+    summary::marker{color:var(--brand)}
+    .cta{
+      padding:22px;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;
+      background:linear-gradient(135deg, rgba(110,231,255,.16), rgba(167,139,250,.14));
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .footer{padding:28px 0 40px;color:var(--muted);border-top:1px solid var(--line)}
+    .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:16px}
+    .mini{font-size:12px;line-height:1.6}
+    .muted{color:var(--muted)}
+    .right{display:flex;gap:10px;flex-wrap:wrap}
+    .topline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+    @media (max-width: 940px){
+      .hero-grid{grid-template-columns:1fr;gap:14px}
+      h1{font-size:36px}
+      .stats{grid-template-columns:repeat(3,1fr)}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .foot-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#inicio" aria-label="Voltar ao início">
+        <span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M12 3v18M4 7h16M6 7l-2 6a4 4 0 008 0l-2-6M18 7l-2 6a4 4 0 008 0l-2-6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg></span>
+        <span>DMS ADVOCACIA</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação">
+        <a href="#atuacao">Áreas</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="right">
+        <a class="btn small" href="#contato">Agendar consulta</a>
+        <a class="btn small primary" id="btnWhats" href="#">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="inicio" class="hero">
+    <div class="wrap hero-grid">
+      <section>
+        <div class="topline">
+          <span class="pill">⚖️ <b>Atendimento rápido</b> • online e presencial</span>
+          <span class="badge" title="Exemplo">+20 anos de atuação</span>
+        </div>
+
+        <h1>Assessoria jurídica estratégica para proteger seus direitos e decisões</h1>
+        <p class="lead">
+          Conte com orientação clara, análise de risco e atuação firme. Atendimento humanizado,
+          com foco em solução e prevenção de problemas.
+        </p>
+
+        <div class="hero-ctas">
+          <a class="btn primary" href="#contato">Solicitar avaliação do caso</a>
+          <a class="btn" href="#atuacao">Ver áreas de atuação</a>
+        </div>
+
+        <div class="stats" aria-label="Indicadores">
+          <div class="stat">
+            <div class="k">Atendimento em 24h</div>
+            <div class="t">Triagem e retorno rápido</div>
+          </div>
+          <div class="stat">
+            <div class="k">Estratégia + clareza</div>
+            <div class="t">Sem juridiquês</div>
+          </div>
+          <div class="stat">
+            <div class="k">Confidencialidade</div>
+            <div class="t">Sigilo profissional</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card hero-card" aria-label="Formulário rápido">
+        <h3>Receba uma orientação inicial</h3>
+        <p class="note">
+          Preencha os dados e descreva brevemente. Entraremos em contato com o melhor caminho para o seu caso.
+        </p>
+
+        <form class="form" id="leadForm">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" placeholder="Seu nome completo" required />
+          </div>
+
+          <div class="field">
+            <label for="telefone">Telefone/WhatsApp</label>
+            <input id="telefone" name="telefone" type="tel" placeholder="(DDD) 9xxxx-xxxx" required />
+          </div>
+
+          <div class="field">
+            <label for="area">Área de interesse</label>
+            <select id="area" name="area" required>
+              <option value="" selected disabled>Selecione…</option>
+              <option>Trabalhista</option>
+              <option>Cível</option>
+              <option>Família e Sucessões</option>
+              <option>Consumidor</option>
+              <option>Empresarial/Contratos</option>
+              <option>Imobiliário</option>
+              <option>Outros</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mensagem">Resumo do caso</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Explique em poucas linhas o que aconteceu…" required></textarea>
+          </div>
+
+          <button class="btn primary" type="submit">Enviar e falar com um advogado</button>
+          <p class="mini muted">
+            Ao enviar, você concorda em ser contatado(a). Não compartilhamos seus dados com terceiros.
+          </p>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ÁREAS -->
+  <section id="atuacao" class="section">
+    <div class="wrap">
+      <h2>Áreas de atuação</h2>
+      <p>Atendimento completo, com foco em prevenção, negociação e soluções eficientes.</p>
+
+      <div class="grid-3">
+        <article class="card item">
+          <div class="icon">👔</div>
+          <h3>Trabalhista</h3>
+          <p class="muted">Ações, acordos e defesa estratégica para empregados e empregadores.</p>
+          <ul>
+            <li>Rescisão, verbas e horas extras</li>
+            <li>Defesa em reclamações</li>
+            <li>Negociação e acordos</li>
+          </ul>
+        </article>
+
+        <article class="card item">
+          <div class="icon">📄</div>
+          <h3>Cível</h3>
+          <p class="muted">Cobranças, indenizações, responsabilidade civil e obrigações.</p>
+          <ul>
+            <li>Contratos e inadimplemento</li>
+            <li>Danos materiais e morais</li>
+            <li>Execução e cobrança</li>
+          </ul>
+        </article>
+
+        <article class="card item">
+          <div class="icon">🏛️</div>
+          <h3>Empresarial</h3>
+          <p class="muted">Suporte jurídico contínuo para decisões seguras e redução de risco.</p>
+          <ul>
+            <li>Contratos e revisão</li>
+            <li>Compliance e prevenção</li>
+            <li>Negociações e disputas</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid-3">
+        <article class="card item">
+          <div class="icon">👨‍👩‍👧</div>
+          <h3>Família e Sucessões</h3>
+          <p class="muted">Condução ética e cuidadosa em temas sensíveis.</p>
+          <ul>
+            <li>Divórcio e guarda</li>
+            <li>Pensão alimentícia</li>
+            <li>Inventário e partilha</li>
+          </ul>
+        </article>
+
+        <article class="card item">
+          <div class="icon">🛒</div>
+          <h3>Consumidor</h3>
+          <p class="muted">Soluções para conflitos com empresas, serviços e produtos.</p>
+          <ul>
+            <li>Vício/defeito e garantia</li>
+            <li>Cobrança indevida</li>
+            <li>Negativação</li>
+          </ul>
+        </article>
+
+        <article class="card item">
+          <div class="icon">🏠</div>
+          <h3>Imobiliário</h3>
+          <p class="muted">Segurança em compra, venda, locação e conflitos possessórios.</p>
+          <ul>
+            <li>Locação e despejo</li>
+            <li>Compra e venda</li>
+            <li>Regularização documental</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="section">
+    <div class="wrap">
+      <h2>Como funciona</h2>
+      <p>Um processo simples, transparente e com comunicação objetiva.</p>
+
+      <div class="grid-3 steps">
+        <article class="card step">
+          <h3>Triagem e entendimento</h3>
+          <p class="muted">Coletamos informações essenciais e alinhamos expectativas e urgências.</p>
+        </article>
+        <article class="card step">
+          <h3>Análise e estratégia</h3>
+          <p class="muted">Mapeamos riscos, provas, alternativas (acordo x ação) e próximos passos.</p>
+        </article>
+        <article class="card step">
+          <h3>Execução e acompanhamento</h3>
+          <p class="muted">Atuação firme e atualizações periódicas sobre andamento e decisões.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais" class="section">
+    <div class="wrap">
+      <h2>Diferenciais</h2>
+      <p>O que você pode esperar do nosso atendimento.</p>
+
+      <div class="grid-2">
+        <article class="card item">
+          <div class="icon">✅</div>
+          <h3>Transparência total</h3>
+          <p class="muted">Orientação clara sobre chances, custos e prazos, com comunicação objetiva.</p>
+        </article>
+
+        <article class="card item">
+          <div class="icon">🧠</div>
+          <h3>Estratégia sob medida</h3>
+          <p class="muted">Cada caso tem um caminho. Priorizamos soluções com melhor custo-benefício.</p>
+        </article>
+
+        <article class="card item">
+          <div class="icon">🔒</div>
+          <h3>Sigilo e segurança</h3>
+          <p class="muted">Tratamento confidencial das informações e documentos do cliente.</p>
+        </article>
+
+        <article class="card item">
+          <div class="icon">⚡</div>
+          <h3>Agilidade</h3>
+          <p class="muted">Triagem rápida e atuação com foco em resolver sem enrolação.</p>
+        </article>
+      </div>
+
+      <div class="card cta" style="margin-top:18px">
+        <div>
+          <h3 style="margin:0 0 6px">Quer entender o melhor caminho para o seu caso?</h3>
+          <p class="muted" style="margin:0">Clique e fale com a equipe pelo WhatsApp agora.</p>
+        </div>
+        <a class="btn primary" id="ctaWhats" href="#">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="section">
+    <div class="wrap">
+      <h2>Depoimentos</h2>
+      <p>Exemplos de feedback (substitua pelos seus reais).</p>
+
+      <div class="grid-3">
+        <article class="card testi">
+          <div class="stars">★★★★★</div>
+          <p class="muted">“Atendimento rápido e muito claro. Me senti seguro(a) em cada etapa.”</p>
+          <div class="who">— Cliente, Goiânia/GO</div>
+        </article>
+        <article class="card testi">
+          <div class="stars">★★★★★</div>
+          <p class="muted">“Resolveram meu caso com estratégia e transparência. Recomendo.”</p>
+          <div class="who">— Cliente, São Paulo/SP</div>
+        </article>
+        <article class="card testi">
+          <div class="stars">★★★★★</div>
+          <p class="muted">“Comunicação excelente e orientação objetiva, sem juridiquês.”</p>
+          <div class="who">— Cliente, Brasília/DF</div>
+        </article>
+      </div>
+
+      <p class="mini muted" style="margin-top:12px">
+        *Resultados variam conforme o caso. O conteúdo desta página é informativo e não substitui consulta jurídica.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <h2>Perguntas frequentes</h2>
+      <p>Tire dúvidas rápidas antes de agendar.</p>
+
+      <div style="margin-top:18px">
+        <details>
+          <summary>Como funciona a primeira consulta?</summary>
+          <p class="muted">Você explica o cenário, enviamos uma orientação inicial e alinhamos a estratégia e os próximos passos.</p>
+        </details>
+
+        <details>
+          <summary>É possível atendimento online?</summary>
+          <p class="muted">Sim. A triagem e reuniões podem ser online, conforme a necessidade do caso.</p>
+        </details>
+
+        <details>
+          <summary>Quais documentos preciso enviar?</summary>
+          <p class="muted">Depende do tema. Em geral: contratos, mensagens, comprovantes, notificações e documentos pessoais (quando necessário).</p>
+        </details>
+
+        <details>
+          <summary>Quanto custa?</summary>
+          <p class="muted">Os honorários variam conforme complexidade e urgência. Após a triagem, apresentamos uma proposta com clareza.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="wrap">
+      <h2>Contato</h2>
+      <p>Preencha o formulário ou fale diretamente via WhatsApp.</p>
+
+      <div class="grid-2">
+        <article class="card item">
+          <h3 style="margin-top:0">Dados do escritório</h3>
+          <p class="muted" style="margin:6px 0 0">
+            <b>Telefone/WhatsApp:</b> <span id="phoneText">(62) 98433-2723</span><br/>
+            <b>E-mail:</b> advdeboradantas@hotmail.com.br<br/>
+            <b>Endereço:</b> Rua Caraibas, 123 — Centro — Goiania/Go<br/>
+            <b>OAB:26986</b> UF 740000
+          </p>
+
+          <div class="hero-ctas" style="margin-top:14px">
+            <a class="btn primary" id="contactWhats" href="#">Falar no WhatsApp</a>
+            <a class="btn" href="#inicio">Voltar ao topo</a>
+          </div>
+
+          <p class="mini muted" style="margin-top:12px">
+            Horário sugerido: Seg–Sex, 08:00–18:00. (Ajuste conforme sua rotina.)
+          </p>
+        </article>
+
+        <article class="card item">
+          <h3 style="margin-top:0">Envie sua mensagem</h3>
+          <form class="form" id="contactForm">
+            <div class="field">
+              <label for="cNome">Nome</label>
+              <input id="cNome" name="cNome" type="text" placeholder="Seu nome" required />
+            </div>
+
+            <div class="field">
+              <label for="cEmail">E-mail</label>
+              <input id="cEmail" name="cEmail" type="email" placeholder="seuemail@dominio.com" required />
+            </div>
+
+            <div class="field">
+              <label for="cAssunto">Assunto</label>
+              <input id="cAssunto" name="cAssunto" type="text" placeholder="Ex.: Rescisão, Contrato, Cobrança..." required />
+            </div>
+
+            <div class="field">
+              <label for="cMsg">Mensagem</label>
+              <textarea id="cMsg" name="cMsg" placeholder="Escreva sua mensagem..." required></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Enviar</button>
+            <p class="mini muted">*Este envio é apenas demonstrativo (sem backend). Configure integração (Forms, e-mail, CRM) se quiser receber automaticamente.</p>
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap foot-grid">
+      <div>
+        <div class="brand" style="gap:10px">
+          <span class="logo" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M12 3v18M4 7h16M6 7l-2 6a4 4 0 008 0l-2-6M18 7l-2 6a4 4 0 008 0l-2-6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg></span>
+          <span>DMS ADVOCACIA</span>
+        </div>
+        <p class="mini muted" style="margin-top:10px">
+          Conteúdo informativo. Não constitui promessa de resultado nem substitui consulta jurídica.
+        </p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;font-weight:900;color:var(--text)">Links</p>
+        <p class="mini" style="margin:0;line-height:1.9">
+          <a class="muted" href="#atuacao">Áreas de atuação</a><br/>
+          <a class="muted" href="#como-funciona">Como funciona</a><br/>
+          <a class="muted" href="#faq">FAQ</a><br/>
+          <a class="muted" href="#contato">Contato</a>
+        </p>
+      </div>
+      <div>
+        <p style="margin:0 0 8px;font-weight:900;color:var(--text)">Contato</p>
+        <p class="mini muted" style="margin:0;line-height:1.9">
+          WhatsApp: <span id="footerPhone">(62) 984332723</span><br/>
+          E-mail: contato@seuescritorio.com.br
+        </p>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:16px">
+      <p class="mini muted" style="margin:0">© <span id="year"></span> Seu Escritório. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ========= CONFIGURE AQUI =========
+    const WHATSAPP_NUMBER = "5562984332723"; // formato: 55 + DDD + número (sem espaços)
+    const WHATSAPP_DEFAULT_MESSAGE =
+      "Olá! Vim pela landing page e gostaria de falar com um advogado. Pode me orientar?";
+
+    const DISPLAY_PHONE = "(62) 98433-2723";
+    // =================================
+
+    const y = document.getElementById("year");
+    y.textContent = new Date().getFullYear();
+
+    // Set phone placeholders
+    document.getElementById("phoneText").textContent = DISPLAY_PHONE;
+    document.getElementById("footerPhone").textContent = DISPLAY_PHONE;
+
+    function waLink(text){
+      const base = "https://wa.me/" + WHATSAPP_NUMBER;
+      const msg = encodeURIComponent(text || WHATSAPP_DEFAULT_MESSAGE);
+      return base + "?text=" + msg;
+    }
+
+    // Wire WhatsApp buttons
+    const btns = ["btnWhats","ctaWhats","contactWhats"];
+    btns.forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.href = waLink(WHATSAPP_DEFAULT_MESSAGE);
+      if(el) el.target = "_blank";
+      if(el) el.rel = "noopener";
+    });
+
+    // Lead form -> WhatsApp
+    document.getElementById("leadForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const nome = document.getElementById("nome").value.trim();
+      const tel = document.getElementById("telefone").value.trim();
+      const area = document.getElementById("area").value;
+      const msg = document.getElementById("mensagem").value.trim();
+
+      const text =
+`Olá! Vim pela landing page.
+Nome: ${nome}
+Telefone: ${tel}
+Área: ${area}
+Resumo: ${msg}`;
+
+      window.open(waLink(text), "_blank", "noopener");
+    });
+
+    // Contact form (demo)
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Mensagem enviada (modo demonstrativo). Para funcionar de verdade, conecte a um backend/Forms/CRM.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
