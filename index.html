@@ -2,21 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Assessoria jurídica estratégica com atendimento humanizado. Fale com um advogado e agende sua consulta." />
-  <title>Dms Advocacia | Atendimento rápido e estratégico</title>
+  <title>DMS Advocacia | Trabalhista, Empresarial e Digital</title>
 
   <style>
- /* Ajustes Mobile */
-    @media (max-width: 768px) {
-      body { font-size: 14px; }
-      h1 { font-size: 22px; }
-      h2 { font-size: 18px; }
-      p  { font-size: 14px; }
-      section { padding: 20px 14px; }
-    }
-
-    
     :root{
       --bg:#0b1220;
       --card:#0f1a33;
@@ -205,8 +195,40 @@
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
       .nav-links{display:none}
+      .right{width:100%; justify-content:space-between}
       .foot-grid{grid-template-columns:1fr}
     }
+  
+    /* ===== Mobile-first refinements ===== */
+    @media (max-width: 520px){
+      :root{ --pad: 16px; }
+      h1{font-size:32px; line-height:1.12}
+      .lead{font-size:15px}
+      .hero{padding:34px 0 18px}
+      .hero-ctas{gap:10px}
+      .btn{width:100%}
+      .btn.small{width:auto}
+      .stats{grid-template-columns:1fr; gap:10px}
+      .stat .k{font-size:16px}
+      .nav-inner{padding:12px 0}
+      .brand span{font-size:14px}
+      .logo{width:34px;height:34px;border-radius:12px}
+      .hero-card{padding:16px}
+      input,select,textarea{padding:13px 12px; border-radius:14px; font-size:16px}
+      /* 16px avoids iOS zoom on focus */
+      .grid-3, .grid-2{grid-template-columns:1fr; gap:12px}
+      .item{padding:16px}
+      .item ul{padding-left:18px}
+      .cta{padding:16px}
+      .topline{gap:8px}
+      .pill{width:100%; justify-content:center}
+    }
+
+    @media (max-width: 360px){
+      h1{font-size:28px}
+      .pill{font-size:12px}
+    }
+
   </style>
 </head>
 
@@ -293,14 +315,14 @@
           <div class="field">
             <label for="area">Área de interesse</label>
             <select id="area" name="area" required>
-              <option value="" selected disabled>Selecione…</option>
-              <option>Trabalhista</option>
-              <option>Cível</option>
+              <option value="" selected disabled>Selecione a área</option>
+              <option>Direito Trabalhista</option>
+              <option>Direito Empresarial</option>
               <option>Direito Digital</option>
-             </select>
+            </select>
           </div>
 
-         <div class="field">
+          <div class="field">
             <label for="mensagem">Resumo do caso</label>
             <textarea id="mensagem" name="mensagem" placeholder="Explique em poucas linhas o que aconteceu…" required></textarea>
           </div>
@@ -318,26 +340,26 @@
   <section id="atuacao" class="section">
     <div class="wrap">
       <h2>Áreas de atuação</h2>
-      <p>Atendimento completo, com foco em prevenção, negociação e soluções eficientes.</p>
+      <p>Atuação estratégica e preventiva, com foco em proteção de direitos, redução de riscos e soluções eficientes.</p>
 
       <div class="grid-3">
         <article class="card item">
-          <div class="icon">👔</div>
-          <h3>Trabalhista</h3>
-          <p class="muted">Atuação estratégica e preventiva para empregados e empregadores, com foco na proteção de direitos, redução de riscos e soluções eficientes para conflitos trabalhistas.</p>
+          <div class="icon">⚖️</div>
+          <h3>Direito Trabalhista</h3>
+          <p class="muted">Atuação para empregados e empregadores, com foco na prevenção de passivos e na solução de conflitos.</p>
           <ul>
             <li>Rescisão contratual, verbas trabalhistas e horas extras</li>
             <li>Reclamações trabalhistas e defesas administrativas e judiciais</li>
             <li>Negociação de acordos individuais e coletivos</li>
-            <li>Consultoria preventiva para empresas (compliance trabalhista) </li>
-            <li>* Análise de contratos de trabalho e políticas internas</li>
+            <li>Consultoria preventiva para empresas (compliance trabalhista)</li>
+            <li>Análise de contratos de trabalho e políticas internas</li>
           </ul>
         </article>
 
         <article class="card item">
-          <div class="icon">📄</div>
-          <h3> 🏢 Direito Empresarial</h3>
-          <p class="muted">Suporte jurídico contínuo para empresas, auxiliando na tomada de decisões seguras, na estruturação de negócios e na prevenção de litígios.</p>
+          <div class="icon">🏢</div>
+          <h3>Direito Empresarial</h3>
+          <p class="muted">Suporte jurídico contínuo para decisões seguras, estruturação de negócios e prevenção de litígios.</p>
           <ul>
             <li>Elaboração, revisão e negociação de contratos empresariais</li>
             <li>Compliance, governança e gestão de riscos legais</li>
@@ -347,20 +369,26 @@
           </ul>
         </article>
 
-       <div class="grid-3">
         <article class="card item">
-          <div class="icon">👨‍👩‍👧</div>
+          <div class="icon">💻</div>
           <h3>Direito Digital</h3>
-          <p class="muted">Atuação especializada nas relações jurídicas envolvendo tecnologia, internet e dados, garantindo segurança jurídica no ambiente digital</p>
+          <p class="muted">Segurança jurídica em tecnologia, internet e dados, com foco em conformidade e mitigação de riscos.</p>
           <ul>
-            <li>📄 Proteção de Dados e adequaçao LGPD  </li>
-            <li>💻 Elaboração de políticas de privacidade, termos de uso e segurança da informação</li>
-            <li>🔍 Contratos digitais, SaaS, e-commerce e negócios tecnológicos.</li>
-            <li>🛡️ Auditoria e validação de dados digitais (integridade e rastreabilidade)</li>
-            <li>⚖️ Provas digitais e responsabilização em processos judiciais e administrativos</li>
+            <li>Proteção de dados pessoais e adequação à LGPD</li>
+            <li>Políticas de privacidade, termos de uso e segurança da informação</li>
+            <li>Contratos digitais, SaaS, e-commerce e negócios tecnológicos</li>
+            <li>Auditoria e validação de dados digitais (integridade e rastreabilidade)</li>
+            <li>Provas digitais e responsabilização em processos judiciais e administrativos</li>
             <li>Conformidade legal, análise de riscos e prevenção de sanções</li>
           </ul>
         </article>
+      </div>
+
+      <p class="mini muted" style="margin-top:12px">
+        *A atuação e as teses são definidas caso a caso, conforme a análise documental e o contexto fático.
+      </p>
+    </div>
+  </section>
 
   <!-- COMO FUNCIONA -->
   <section id="como-funciona" class="section">
@@ -570,8 +598,8 @@
       <div>
         <p style="margin:0 0 8px;font-weight:900;color:var(--text)">Contato</p>
         <p class="mini muted" style="margin:0;line-height:1.9">
-          WhatsApp: <span id="footerPhone">(62) 984332723</span><br/>
-          E-mail: contato@seuescritorio.com.br
+          WhatsApp: <span id="footerPhone">(62) 98433-2723</span><br/>
+          E-mail: advdeboradantas@hotmail.com.br
         </p>
       </div>
     </div>
